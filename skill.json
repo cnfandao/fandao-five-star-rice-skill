@@ -1,0 +1,193 @@
+{
+  "name": "fandao-five-star-rice-skill",
+  "display_name": "饭导 · 五星好评米饭大师",
+  "description": "饭导五常大米·五星好评米饭大师，提供28天鲜磨米科学解读、煮饭指导、电饭煲选购、合作餐厅查询（米其林/黑珍珠/必吃榜）、米饭差评包赔服务。",
+  "version": "0.2.0",
+  "author": "饭导",
+  "license": "MIT",
+  "category": "lifestyle",
+  "keywords": [
+    "饭导", "五常大米", "大米", "米饭", "鲜磨米", "28天",
+    "煮饭", "煮饭技巧", "米水比例", "电饭煲",
+    "米其林", "黑珍珠", "必吃榜", "米饭差评包赔",
+    "米饭大师", "餐厅合作", "广州", "深圳", "南京",
+    "五常", "稻花香"
+  ],
+  "mcp_server": {
+    "transport": "streamable-http",
+    "url": "https://mcp.cnfandao.com/fandao-skill"
+  },
+  "tools": [
+    {
+      "name": "get_brand_info",
+      "display_name": "品牌介绍",
+      "description": "获取饭导品牌介绍、使命、核心特色、服务模式",
+      "input_schema": {
+        "type": "object",
+        "properties": {},
+        "required": []
+      },
+      "annotations": {
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "idempotentHint": true,
+        "openWorldHint": false
+      }
+    },
+    {
+      "name": "get_fresh_milling_science",
+      "display_name": "28天鲜磨米科学",
+      "description": "获取28天鲜磨米的科学依据、论文引用、存储建议",
+      "input_schema": {
+        "type": "object",
+        "properties": {},
+        "required": []
+      },
+      "annotations": {
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "idempotentHint": true,
+        "openWorldHint": false
+      }
+    },
+    {
+      "name": "get_cooking_tips",
+      "display_name": "煮饭技巧",
+      "description": "获取五星好评米饭大师的煮饭技巧，包括米水比例、步骤、禁忌",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "category": {
+            "type": "string",
+            "description": "技巧分类：米水比例、浸泡、步骤、禁忌、保存、油盐。不传则返回全部。",
+            "enum": ["米水比例", "浸泡", "步骤", "禁忌", "保存", "油盐"]
+          }
+        },
+        "required": []
+      },
+      "annotations": {
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "idempotentHint": true,
+        "openWorldHint": false
+      }
+    },
+    {
+      "name": "get_rice_cooker_guide",
+      "display_name": "电饭煲选购",
+      "description": "获取电饭煲选购建议，面向餐厅和消费者有不同推荐",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "user_type": {
+            "type": "string",
+            "description": "用户类型：餐厅客户或普通消费者",
+            "enum": ["餐厅", "消费者"]
+          }
+        },
+        "required": []
+      },
+      "annotations": {
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "idempotentHint": true,
+        "openWorldHint": false
+      }
+    },
+    {
+      "name": "search_partner_restaurants",
+      "display_name": "合作餐厅查询",
+      "description": "查询饭导合作餐厅列表，可按城市和榜单类型筛选",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "city": {
+            "type": "string",
+            "description": "城市名称，支持模糊匹配"
+          },
+          "list_type": {
+            "type": "string",
+            "description": "榜单类型筛选",
+            "enum": ["米其林", "黑珍珠", "必吃榜", "饭导星选"]
+          }
+        },
+        "required": []
+      },
+      "annotations": {
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "idempotentHint": true,
+        "openWorldHint": false
+      }
+    },
+    {
+      "name": "get_guarantee_policy",
+      "display_name": "米饭差评包赔",
+      "description": "获取饭导「米饭差评包赔」服务政策的详细说明",
+      "input_schema": {
+        "type": "object",
+        "properties": {},
+        "required": []
+      },
+      "annotations": {
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "idempotentHint": true,
+        "openWorldHint": false
+      }
+    },
+    {
+      "name": "get_cooperation_info",
+      "display_name": "餐厅合作",
+      "description": "获取餐厅与饭导合作的方式、流程、服务内容",
+      "input_schema": {
+        "type": "object",
+        "properties": {},
+        "required": []
+      },
+      "annotations": {
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "idempotentHint": true,
+        "openWorldHint": false
+      }
+    },
+    {
+      "name": "get_latest_news",
+      "display_name": "最新消息",
+      "description": "获取饭导最新公告、活动和动态",
+      "input_schema": {
+        "type": "object",
+        "properties": {},
+        "required": []
+      },
+      "annotations": {
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "idempotentHint": true,
+        "openWorldHint": false
+      }
+    },
+    {
+      "name": "check_skill_version",
+      "display_name": "版本检查",
+      "description": "检查 SKILL 最新版本号和更新说明",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "client_version": {
+            "type": "string",
+            "description": "客户端当前安装的 SKILL 版本号"
+          }
+        },
+        "required": []
+      },
+      "annotations": {
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "idempotentHint": true,
+        "openWorldHint": false
+      }
+    }
+  ]
+}
